@@ -25,21 +25,22 @@ function paintNumber(value) {
   youWin.classList.remove(HIDDEN_CLASSNAME);
   win(value, machineChose);
 }
-const userChoseSaved = localStorage.getItem(USER_CHOSE);
 
 function win(value, machineChose) {
   console.log(value, machineChose);
-  if (value == machineChose) {
+  if (parseInt(value) === machineChose) {
     youWin.innerText = "You Win!";
   } else {
     youWin.innerText = "You lost!";
   }
 }
 
-if (userChoseSaved === null) {
+if (!localStorage.getItem(USER_CHOSE) || !randomNumber.value) {
   choseNumber.classList.add(HIDDEN_CLASSNAME);
   youWin.classList.add(HIDDEN_CLASSNAME);
   randomForm.addEventListener("submit", onRandomSubmit);
 } else {
+  localStorage.setItem(USER_CHOSE, randomNumber.value);
+  const userChoseSaved = localStorage.getItem(USER_CHOSE);
   paintNumber(userChoseSaved);
 }

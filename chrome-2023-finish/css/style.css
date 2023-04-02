@@ -1,0 +1,95 @@
+@import "welcome.css";
+@import "reset.css";
+
+@import "parts/user-info.css";
+
+.hidden {
+  display: none;
+}
+
+.column {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.todo-bar {
+  width: 90vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 50%);
+  position: absolute;
+  top: 0px;
+  left: 10vw;
+}
+
+.todo-bar__ani {
+  animation: todoBar 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+#todo {
+  box-sizing: border-box;
+}
+
+@keyframes todoBar {
+  0% {
+    height: 100vh;
+  }
+  40% {
+    height: 100vh;
+  }
+  100% {
+    height: 25vh;
+  }
+}
+
+.todo-bar > img {
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#todo-list {
+  position: absolute;
+  top: 28vh;
+  left: 25px;
+  z-index: 0;
+  animation: todoList 3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes todoList {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  80% {
+    transform: translateX(-30px);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 100%;
+  }
+}
+
+#todo-list > li {
+  margin-bottom: 30px;
+}
+
+#todo-form > input {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 80vw;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0%);
+  border-width: 0 0 1px 0;
+  border-color: #ffffff;
+  color: #ffffff;
+  font-size: 20px;
+}
